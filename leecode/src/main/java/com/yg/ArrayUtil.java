@@ -1,5 +1,7 @@
 package com.yg;
 
+import java.util.HashMap;
+
 /**
  * 数组工具类
  *

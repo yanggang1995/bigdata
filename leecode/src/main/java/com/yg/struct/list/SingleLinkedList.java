@@ -1,15 +1,14 @@
-package com.yg.struct;
+package com.yg.struct.list;
 
 /**
- * 双向单链表
+ * 单链表
  *
  * @author Y.G
  * @date 2020/3/31 15:41
  **/
-public class DoublyLinkedList {
+public class SingleLinkedList {
     static class Node {
         private int data;
-        private Node pre;
         private Node next;
         private int size = 1;
 
@@ -20,7 +19,6 @@ public class DoublyLinkedList {
         public Node add(Node node) {
             Node nextNode = select(size - 1);
             nextNode.next = node;
-            node.pre = nextNode;
             size++;
             return this;
         }
@@ -30,12 +28,10 @@ public class DoublyLinkedList {
                 Node first = this.next;
                 first.size = this.size -1;
                 this.next = null;
-                first.pre = null;
                 return first;
             }
             Node preNode = select(i - 1);
             preNode.next = preNode.next.next;
-            preNode.next.pre = preNode;
             size--;
             return this;
         }
@@ -44,15 +40,12 @@ public class DoublyLinkedList {
             if(i==0){
                 node.next = this;
                 node.size = this.size + 1;
-                this.pre = node;
                 return node;
             }
             Node preNode = select(i -1);
             Node oldNext =preNode.next;
             preNode.next = node;
-            node.pre = preNode;
             node.next = oldNext;
-            oldNext.pre = node;
             size++;
             return this;
         }
@@ -61,15 +54,12 @@ public class DoublyLinkedList {
             if(i == 0){
                 node.next = this.next;
                 node.size = this.size;
-                this.next.pre = node;
                 this.next = null;
                 return node;
             }
             Node preNode = select(i - 1);
             node.next = preNode.next.next;
-            preNode.next.next.pre = node;
             preNode.next = node;
-            node.pre = preNode;
             return this;
         }
 
@@ -88,18 +78,9 @@ public class DoublyLinkedList {
         public String toString() {
             Node nextNode = this.next;
             StringBuilder str = new StringBuilder(data + "");
-            Node lastNode = this.next;
             while (nextNode != null) {
                 str.append(" -> ").append(nextNode.data);
-                lastNode = nextNode;
                 nextNode = nextNode.next;
-            }
-
-            str.append(" || " + lastNode.data);
-            nextNode = lastNode.pre;
-            while (nextNode != null) {
-                str.append(" -> ").append(nextNode.data);
-                nextNode = nextNode.pre;
             }
             return str.toString();
         }

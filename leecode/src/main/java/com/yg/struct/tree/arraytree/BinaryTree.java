@@ -1,4 +1,4 @@
-package com.yg.struct.arraytree;
+package com.yg.struct.tree.arraytree;
 
 import java.util.Objects;
 

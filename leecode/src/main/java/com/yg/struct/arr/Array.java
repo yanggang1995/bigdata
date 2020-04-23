@@ -1,4 +1,4 @@
-package com.yg.struct;
+package com.yg.struct.arr;
 
 /**
  * 数组
