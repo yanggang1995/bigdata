@@ -1,0 +1,16 @@
+{
+  "opt": {
+    "app": {
+      "name": "db_flink"
+    },
+    "source": {
+      "class":"com.yg.flink.frame.core.source.KafKaSource",
+      "bootstrap.servers": "192.168.90.96:9092",
+      "group.id": "yg_test",
+      "topic": "db_movie"
+    },
+    "sink": {
+      "path": "hdfs://myha/tmp/yg/flink"
+    }
+  }
+}
