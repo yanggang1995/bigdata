@@ -28,7 +28,7 @@ object KafkaApp {
     env.enableCheckpointing(10 * 60 * 1000L)
     val prop = new Properties()
     prop.setProperty("bootstrap.servers", ApiHelper.loadConf("opt.source.bootstrap.servers"))
-    prop.setProperty("group.id", "yg_kafka_1")
+    prop.setProperty("group.id", "yg_kafka_2")
     val kafkaStream: DataStream[String] = env.addSource(new FlinkKafkaConsumer[String](ApiHelper.loadConf("opt.source.topic"), new SimpleStringSchema(), prop))
     kafkaStream.print()
 

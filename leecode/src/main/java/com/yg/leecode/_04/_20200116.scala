@@ -1,4 +1,4 @@
-package com.yg.leecode._4
+package com.yg.leecode._04
 
 /**
  * Y.G
